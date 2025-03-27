@@ -1,0 +1,21 @@
+{
+  "name": "newldap",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "mocha"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "chai": "^5.2.0",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "ldapjs": "^3.0.7",
+    "mocha": "^11.1.0",
+    "supertest": "^7.1.0"
+  }
+}
