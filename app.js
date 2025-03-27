@@ -1,7 +1,8 @@
-require('dotenv').config();
+require('dotenv').config(); // Load environment variables
 const ldap = require('ldapjs');
 const { Change, Attribute } = ldap;
 
+// Helper function for required environment variables
 function getEnvVar(name) {
     const value = process.env[name];
     if (!value) {
@@ -10,6 +11,7 @@ function getEnvVar(name) {
     return value;
 }
 
+// Configuration from environment
 const LDAP_CONFIG = {
     URL: getEnvVar('LDAP_URL'),
     ADMIN_DN: getEnvVar('LDAP_ADMIN_DN'),
@@ -18,6 +20,7 @@ const LDAP_CONFIG = {
     TEST_USER_PASSWORD: getEnvVar('LDAP_TEST_USER_PASSWORD')
 };
 
+// Create secure client
 const client = ldap.createClient({
     url: LDAP_CONFIG.URL,
     tlsOptions: {
@@ -135,7 +138,7 @@ function searchEntries(label, callback) {
 
         res.on('end', (result) => {
             console.log('Search completed with status:', result.status);
-            callback();
+            callback(); // Now properly calls the callback
         });
     });
 }

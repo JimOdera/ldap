@@ -57,6 +57,7 @@ app.get('/search-users', async (req, res) => {
     res.json(entries);
 });
 
+// Cleanup LDAP client after each request
 app.use((req, res, next) => {
     req.ldapClient.unbind(() => { });
     next();
